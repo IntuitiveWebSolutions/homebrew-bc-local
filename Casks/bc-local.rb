@@ -26,12 +26,18 @@ cask "bc-local" do
 
   on_macos do
     on_intel do
-      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_amd64.tar.gz"
-      sha256 "6069500f24d01ff2241fb87fc16fac94fb1f49b257099f71d5d0407890dabd57"
+      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_amd64.tar.gz",
+        header: [
+          "Authorization: bearer #{GitHub::API.credentials}",
+        ]
+      sha256 "af7f4af0d6c114d9ef1237211c49f368a5002169b538dd91f1404a634813bac9"
     end
     on_arm do
-      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_arm64.tar.gz"
-      sha256 "2d04cffccc71fb6f2c48c978a16a9e9a001d7f801f751a0a481678ee688820de"
+      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_arm64.tar.gz",
+        header: [
+          "Authorization: bearer #{GitHub::API.credentials}",
+        ]
+      sha256 "61e50baefa689273d571f9b1029418c5b336386b71cf8456c1af7e042eafe81f"
     end
   end
 
