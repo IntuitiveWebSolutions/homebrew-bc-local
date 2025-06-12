@@ -26,12 +26,12 @@ cask "bc-local" do
 
   on_macos do
     on_intel do
-      url "https://github.com/IntuitiveWebSolutions/PrototypeBriteCoreK8sPlatform/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_amd64.tar.gz"
-      sha256 "9d861f2da48fdaa4b2746c1ef3a16cdfefd7358c8e1c0524fb26e17bcdf03038"
+      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_amd64.tar.gz"
+      sha256 "6069500f24d01ff2241fb87fc16fac94fb1f49b257099f71d5d0407890dabd57"
     end
     on_arm do
-      url "https://github.com/IntuitiveWebSolutions/PrototypeBriteCoreK8sPlatform/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_arm64.tar.gz"
-      sha256 "f599f4bf7df9f4ee165a8ec0e603a27e8ea5c4ad4045b3d938c4558d44c6ee4b"
+      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_arm64.tar.gz"
+      sha256 "2d04cffccc71fb6f2c48c978a16a9e9a001d7f801f751a0a481678ee688820de"
     end
   end
 
