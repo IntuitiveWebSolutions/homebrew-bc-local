@@ -28,16 +28,18 @@ cask "bc-local" do
     on_intel do
       url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_amd64.tar.gz",
         header: [
+          "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "af7f4af0d6c114d9ef1237211c49f368a5002169b538dd91f1404a634813bac9"
+      sha256 "40f032b5519d7f4cdf774b7008288a041a23910f1b9b1b635331c461275e2b46"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_arm64.tar.gz",
         header: [
+          "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "61e50baefa689273d571f9b1029418c5b336386b71cf8456c1af7e042eafe81f"
+      sha256 "9f57c606781b52337f13a265e12e3cfec23f8bd096f372284459ac39c457b563"
     end
   end
 
