@@ -20,6 +20,8 @@ export KIND_EXPERIMENTAL_PROVIDER=podman
 aws sso login --profile <profile_name> # Replace <profile_name> with a profile from ~/.aws/config
 ```
 
+Add the export statements to the bottom of your ~/.zshrc if you'd like these to be initialized in any new terminal session
+
 ## How do I run BriteCore?
 
 > [!WARNING]
