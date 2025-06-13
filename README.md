@@ -3,7 +3,7 @@ Homebrew Repo for bc-local cask. Launch and run BriteCore Locally
 
 # Intuitivewebsolution Bc-local
 
-## How do I install these formulae?
+## How do I install?
 
 ```
 brew tap intuitivewebsolutions/bc-local
