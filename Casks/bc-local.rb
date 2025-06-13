@@ -15,12 +15,12 @@ cask "bc-local" do
     formula: [
       "awscli",
       "gettext",
+      "go-task",
       "helm",
       "kind",
       "kubectl",
       "podman",
       "sops",
-      "task",
       "yq",
     ]
 
@@ -31,7 +31,7 @@ cask "bc-local" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "4afb0951548b596699839be448065b9687b4ac75c69c7dd65809908244fd0632"
+      sha256 "93cf8532b85636a0e6283038dd5a9f63fc435209f4c0352b1b15ea2338360a0d"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_arm64.tar.gz",
@@ -39,7 +39,7 @@ cask "bc-local" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "6d1377a57be5b85ca648e5d228ef38037b15340f1c2bc122e6f60358111f508e"
+      sha256 "82024bf54ecb8aea51bcf1cc159c9c64172ee2eeece55bc2432cb080ff322997"
     end
   end
 
