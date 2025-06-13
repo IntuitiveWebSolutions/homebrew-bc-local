@@ -2,13 +2,16 @@
 cask "bc-local" do
   desc "Local BriteCore Dev Environment"
   homepage ""
-  version "0.0.0-SNAPSHOT-f47c65d"
+  version "0.1.0"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
   binary "bc-local"
+  bash_completion "completions/bc-local.bash"
+  zsh_completion "completions/bc-local.zsh"
+  fish_completion "completions/bc-local.fish"
   depends_on cask: [
       "podman-desktop",
     ],
@@ -26,20 +29,20 @@ cask "bc-local" do
 
   on_macos do
     on_intel do
-      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_amd64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.1.0/bc-local_0.1.0_darwin_amd64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "93cf8532b85636a0e6283038dd5a9f63fc435209f4c0352b1b15ea2338360a0d"
+      sha256 "454e86913373aa90d55579e242d8cdeb6b8033ea153e22e1e58ed5443a9a2c39"
     end
     on_arm do
-      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.0.0/bc-local_0.0.0-SNAPSHOT-f47c65d_darwin_arm64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/homebrew-bc-local/releases/download/v0.1.0/bc-local_0.1.0_darwin_arm64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "82024bf54ecb8aea51bcf1cc159c9c64172ee2eeece55bc2432cb080ff322997"
+      sha256 "3384fc2fd5b5fb502db94d31a599eee19f44930699d92b7d7692a0ff2c4515bd"
     end
   end
 
