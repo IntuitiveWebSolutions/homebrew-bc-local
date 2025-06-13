@@ -14,8 +14,10 @@ brew install bc-local
 
 ```sh
 export BRITECORE_CODE_DIR=<path/to/britecore/code/dir>
+mkdir -p ~/bc-local-data-load
 export BRITECORE_DATA_LOAD_DIR=~/bc-local-data-load
 export KIND_EXPERIMENTAL_PROVIDER=podman
+aws sso login
 ```
 
 ## How do I run BriteCore?
@@ -42,3 +44,12 @@ Make updates to the BriteCore code in the directory specified at `$BRITECORE_COD
 brew update
 brew upgrade bc-local
 ```
+
+## Troubleshooting
+
+### ERROR: image: "bc-local/web" not present locally
+If you're using podman and encountering a problem with `kind load docker-image...` when using `podman` where the error is something like `ERROR: image: "bc-local/web" not present locally` and you can see the image when using `podman images`, then the issue could be that your docker shim is not working properly and you can fix by running 
+
+```sh
+sudo ln -sf "$(command -v podman)" /usr/local/bin/docker
+````
