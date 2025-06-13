@@ -1,7 +1,5 @@
 # bc-local
-Homebrew Repo for bc-local cask. Launch and run BriteCore Locally
-
-# Intuitivewebsolution Bc-local
+Homebrew Repo for bc-local cask. Launch and run BriteCore Locally 🛳️
 
 ## How do I install?
 
