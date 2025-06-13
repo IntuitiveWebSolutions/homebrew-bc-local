@@ -3,8 +3,7 @@ Homebrew Repo for bc-local cask. Launch and run BriteCore Locally 🛳️
 
 ## How do I install?
 
-> [!INFO]
-> Since this is a homebrew cask there is no need to clone this repository. You just need to have [homebrew](https://brew.sh) installed!
+> **Note:** Since this is a homebrew cask there is no need to clone this repository. You just need to have [homebrew](https://brew.sh) installed!
 
 ```
 brew tap intuitivewebsolutions/bc-local
