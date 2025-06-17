@@ -29,7 +29,7 @@ Add the export statements to the bottom of your ~/.zshrc if you'd like these to 
 
 This will launch a local britecore site from scratch. 
 ```sh
-bc-local bootstrap
+bc-local bootstrap client=rowanmutual celery=false pytest=false #change args as needed
 bc-local status
 bc-local open web
 ```
