@@ -42,11 +42,16 @@ bc-local refresh
 
 Make updates to the BriteCore code in the directory specified at `$BRITECORE_CODE_DIR` then run `bc-local refresh`
 
-## How can I upgrade my version?
+## How can I use local monitoring tools?
 
 ```sh
-brew update
-brew upgrade bc-local
+bc-local monitoring
+```
+
+## How can I upgrade my bc-local version?
+
+```sh
+brew update && brew upgrade bc-local
 ```
 
 ## Troubleshooting
@@ -56,4 +61,7 @@ If you're using podman and encountering a problem with `kind load docker-image..
 
 ```sh
 sudo ln -sf "$(command -v podman)" /usr/local/bin/docker
-````
+```
+
+### ERROR: dropping 1005 traces to Datadog Agent ... ([Errno -2] Name or service not known) 
+If you're seeing many error logs related to the DataDog Agent, it's typically because it's unable to find the bc-local monitoring stack. You can resolve this by launching the monitoring stack with `bc-local monitoring`
