@@ -17,7 +17,7 @@ export BRITECORE_CODE_DIR=<path/to/britecore/code/dir>
 mkdir -p ~/bc-local-data-load
 export BRITECORE_DATA_LOAD_DIR=~/bc-local-data-load
 export KIND_EXPERIMENTAL_PROVIDER=podman
-aws sso login --profile <profile_name> # Replace <profile_name> with a profile from ~/.aws/config
+export AWS_PROFILE=<profile_name> && aws sso login --profile <profile_name>  # Replace <profile_name> with a profile from ~/.aws/config
 ```
 
 Add the export statements to the bottom of your ~/.zshrc if you'd like these to be initialized in any new terminal session
