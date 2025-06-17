@@ -31,7 +31,7 @@ cask "bc-local" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "6688d5142973333cc44921b32e08a5d41ee020c8e577014b9ad19d79d36feb0f"
+      sha256 "196b95a8a39409fe70f2123a3921ef1ee625f9c67209c678d9905d29884ce791"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.1.10/bc-local_0.1.10_darwin_arm64.tar.gz",
@@ -39,7 +39,7 @@ cask "bc-local" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "978339beeea4f08294f2b1055979af142b0ba0542d7aaf4155e683dbb3130e93"
+      sha256 "1212b286bea7ebe9f0ec1e97452aa166891da29825851fb68129dcc7978fff08"
     end
   end
 
