@@ -26,20 +26,20 @@ cask "bc-local" do
 
   on_macos do
     on_intel do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/0.1.11/bc-local_0.1.11_darwin_amd64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.1.11/bc-local_0.1.11_darwin_amd64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "a53db49b1ae01a62de2cd3f91d0ac123b508818d25f93b19b188ad107f2c1a7c"
+      sha256 "77d1d0c7f1c28e83b63295d79fa3795ecb84c163d2ee847c414c404c4a639fbb"
     end
     on_arm do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/0.1.11/bc-local_0.1.11_darwin_arm64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.1.11/bc-local_0.1.11_darwin_arm64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "f16375e22d4f7fb8ede2862ad2570812dda8d1a06aacb9f2ae02dd44f82f33a7"
+      sha256 "7776054e0020d52c7ad90ab899c3496c9d30d97614b523e2dd8d85867f5ca7b2"
     end
   end
 
