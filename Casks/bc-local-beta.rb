@@ -32,7 +32,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "fa6fa0d8b4ef2e1529a44134f351832c7a6db3a4966811295d69d71bdee9c0ca"
+      sha256 "2bb5e31579c814e361afbe237994c7a1437084984ed0f0213ff9ef63df943a24"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.0.0/bc-local-beta_0.0.0_darwin_arm64.tar.gz",
@@ -40,13 +40,13 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "7be579f6ba0485a4943d1a724f8af4b88dce844c4ebef3b98f7b9d51f13d2540"
+      sha256 "3a48ad30ed7a26dbc4ba2ed3259c5449aca873125293293ac3b7990bda5a1ef5"
     end
   end
 
   postflight do
     if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/bc-local"]
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/bc-local-beta"]
     end
   end
 
