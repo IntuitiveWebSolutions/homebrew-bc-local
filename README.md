@@ -54,6 +54,13 @@ bc-local monitoring
 brew update && brew upgrade bc-local
 ```
 
+## How can I get and use the beta version (less stable)
+```sh
+brew install bc-local-beta
+bc-local-beta version
+```
+bc-local-beta is where we will push the latest features and changes that have been merged to the main source code branch.
+
 ## Troubleshooting
 
 ### ERROR: image: "bc-local/web" not present locally
