@@ -65,3 +65,14 @@ sudo ln -sf "$(command -v podman)" /usr/local/bin/docker
 
 ### ERROR: dropping 1005 traces to Datadog Agent ... ([Errno -2] Name or service not known) 
 If you're seeing many error logs related to the DataDog Agent, it's typically because it's unable to find the bc-local monitoring stack. You can resolve this by launching the monitoring stack with `bc-local monitoring`
+
+### ERROR: ECONNREFUSED 127.0.0.1:30678 (when connecting to debugger)
+<img src="./docs/images/err_ECONNREFUSED_port_30678.png" alt="Screenshot of the VS Code error" width="300">
+
+If you see this error when attempting to connect to the debugger port, this may be because the bc-local kind cluster is not exposing the port. You can test this by executing `lsof -i TCP |grep 30678` which should provide and output like `gvproxy ... TCP *:30678 (LISTEN)`. 
+
+If you get no output then run the following to fix:
+```
+bc-local clean
+bc-local bootstrap
+```
