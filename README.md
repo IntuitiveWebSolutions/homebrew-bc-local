@@ -63,6 +63,7 @@ bc-local-beta version
 bc-local-beta is where we will push the latest features and changes that have been merged to the main source code branch.
 
 ## Troubleshooting
+----
 ### ERROR: Missing the following required SSO configuration values: sso_start_url, sso_region
 <details>
 <summary>Click to expand solution</summary>
@@ -82,6 +83,7 @@ output = text
 ```
 </details>
 
+----
 ### ERROR: unable to connect to Podman socket
 <details>
 <summary>Click to expand solution</summary>
@@ -103,6 +105,7 @@ Then you should see output upon rerun of `podman system connection list`
 
 </details>
 
+----
 ### ERROR: image: "bc-local/web" not present locally
 <details>
 <summary>Click to expand solution</summary>
@@ -119,6 +122,7 @@ sudo ln -sf "$(command -v podman)" /usr/local/bin/docker
 
 </details>
 
+----
 ### ERROR: dropping 1005 traces to Datadog Agent ... ([Errno -2] Name or service not known) 
 <details>
 <summary>Click to expand solution</summary>
@@ -130,6 +134,7 @@ bc-local monitoring
 
 </details>
 
+----
 ### ERROR: ECONNREFUSED 127.0.0.1:30678 (when connecting to debugger)
 <details>
 <summary>Click to expand solution</summary>
