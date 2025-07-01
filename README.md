@@ -81,6 +81,22 @@ output = text
 ```
 </details>
 
+### ERROR: unable to connect to Podman socket
+<details>
+<summary>Click to expand solution</summary>
+
+This problem typically is due to the podman VM setup not properly creating necessary connections. You can validate the issue by running `podman system connection list` not getting any output.
+
+To fix you'll want to run the following 
+```sh
+podman machine init
+podman machine start
+```
+
+Then you should see output upon rerun of `podman system connection list`
+
+</details>
+
 ### ERROR: image: "bc-local/web" not present locally
 <details>
 <summary>Click to expand solution</summary>
