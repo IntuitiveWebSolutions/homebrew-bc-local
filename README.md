@@ -25,14 +25,15 @@ Add the export statements to the bottom of your ~/.zshrc if you'd like these to 
 ## How do I run BriteCore?
 
 > [!WARNING]
-> Make sure that your Podman setup has enough resources allocated (≥ 8GB memory) to it in order to run a BriteCore site. The site is available once the `web` pod (seen using `bc-local status`) is `Running` all containers.
+> Make sure that your Podman setup has enough resources allocated (≥ 8GB memory) to it in order to run a BriteCore site. You can use the following command to automatically use recommended settings `podman machine init podman-machine-default --cpus 8 --memory 8192 --disk-size 100 --now`. 
 
-This will launch a local britecore site from scratch. 
+This will launch a local britecore site from scratch:
 ```sh
 bc-local bootstrap client=rowanmutual celery=false pytest=false #change args as needed
 bc-local status
 bc-local open web
 ```
+The site is available once the `web` pod (seen using `bc-local status`) is `Running` all containers.
 
 ## How can I use this to develop BriteCore?
 
@@ -85,6 +86,11 @@ output = text
 <details>
 <summary>Click to expand solution</summary>
 
+<img src="./docs/images/err_unable_to_connect_to_podman_socket.png" alt="Screenshot of the terminal error" width="1000">
+
+Example terminal error
+
+<br>
 This problem typically is due to the podman VM setup not properly creating necessary connections. You can validate the issue by running `podman system connection list` not getting any output.
 
 To fix you'll want to run the following 
@@ -100,7 +106,11 @@ Then you should see output upon rerun of `podman system connection list`
 ### ERROR: image: "bc-local/web" not present locally
 <details>
 <summary>Click to expand solution</summary>
+<img src="./docs/images/err_bc_local_web_image_not_present_locally.png" alt="Screenshot of the terminal error" width="600">
 
+Example terminal error
+
+<br>
 If you're using podman and encountering a problem with `kind load docker-image...` when using `podman` where the error is something like `ERROR: image: "bc-local/web" not present locally` and you can see the image when using `podman images`, then the issue could be that your docker shim is not working properly and you can fix by running 
 
 ```sh
@@ -125,6 +135,9 @@ bc-local monitoring
 <summary>Click to expand solution</summary>
 <img src="./docs/images/err_ECONNREFUSED_port_30678.png" alt="Screenshot of the VS Code error" width="300">
 
+Example VS Code error popup
+
+<br>
 If you see this error when attempting to connect to the debugger port, this may be because the bc-local kind cluster is not exposing the port. You can test this by executing `lsof -i TCP |grep 30678` which should provide and output like `gvproxy ... TCP *:30678 (LISTEN)`. 
 
 If you get no output then run the following to fix:
