@@ -63,6 +63,21 @@ bc-local-beta is where we will push the latest features and changes that have be
 
 ## Troubleshooting
 
+### ERROR: Missing the following required SSO configuration values: sso_start_url, sso_region
+You'll encounter this error if your profile isn't configured in your `~/.aws/config` file. You can use the following profile or model a custom profile based on the one below. If you use the profile below, you can retry the authentication process using `export AWS_PROFILE=bcp_engineer && aws sso login --profile bcp_engineer` 
+
+```ini
+[profile bcp_engineer]
+region = us-east-1
+cli_auto_prompt = on-partial
+sso_start_url = https://britecore-accounts.awsapps.com/start#/
+sso_region = us-east-1
+sso_account_id = 313750358190
+sso_role_name = BriteCoreProEngineer
+duration_seconds = 14400
+output = text
+```
+
 ### ERROR: image: "bc-local/web" not present locally
 If you're using podman and encountering a problem with `kind load docker-image...` when using `podman` where the error is something like `ERROR: image: "bc-local/web" not present locally` and you can see the image when using `podman images`, then the issue could be that your docker shim is not working properly and you can fix by running 
 
