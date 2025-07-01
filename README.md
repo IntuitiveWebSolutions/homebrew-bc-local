@@ -106,7 +106,7 @@ Then you should see output upon rerun of `podman system connection list`
 </details>
 
 ----
-### ERROR: image: "bc-local/web" not present locally
+### ERROR: image: "localhost/bc-local/web" not present locally
 <details>
 <summary>Click to expand solution</summary>
 <img src="./docs/images/err_bc_local_web_image_not_present_locally.png" alt="Screenshot of the terminal error" width="600">
@@ -114,7 +114,14 @@ Then you should see output upon rerun of `podman system connection list`
 Example terminal error
 
 <br>
-If you're using podman and encountering a problem with `kind load docker-image...` when using `podman` where the error is something like `ERROR: image: "bc-local/web" not present locally` and you can see the image when using `podman images`, then the issue could be that your docker shim is not working properly and you can fix by running 
+If you're seeing this and you are able to see the image locally when executing the following 
+
+```sh
+podman images | grep localhost/bc-local/web
+```
+
+<br>
+you can fix by running 
 
 ```sh
 sudo ln -sf "$(command -v podman)" /usr/local/bin/docker
@@ -143,7 +150,19 @@ bc-local monitoring
 Example VS Code error popup
 
 <br>
-If you see this error when attempting to connect to the debugger port, this may be because the bc-local kind cluster is not exposing the port. You can test this by executing `lsof -i TCP |grep 30678` which should provide and output like `gvproxy ... TCP *:30678 (LISTEN)`. 
+If you see this error when attempting to connect to the debugger port, this may be because the bc-local kind cluster is not exposing the port. 
+
+You can test this by executing 
+
+```sh
+lsof -i TCP |grep 30678
+```
+
+which should provide an output like 
+
+```sh
+gvproxy ... TCP *:30678 (LISTEN)
+```
 
 If you get no output then run the following to fix:
 ```
