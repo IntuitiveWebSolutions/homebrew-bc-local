@@ -62,8 +62,10 @@ bc-local-beta version
 bc-local-beta is where we will push the latest features and changes that have been merged to the main source code branch.
 
 ## Troubleshooting
-
 ### ERROR: Missing the following required SSO configuration values: sso_start_url, sso_region
+<details>
+<summary>Click to expand solution</summary>
+
 You'll encounter this error if your profile isn't configured in your `~/.aws/config` file. You can use the following profile or model a custom profile based on the one below. If you use the profile below, you can retry the authentication process using `export AWS_PROFILE=bcp_engineer && aws sso login --profile bcp_engineer` 
 
 ```ini
@@ -77,18 +79,34 @@ sso_role_name = BriteCoreProEngineer
 duration_seconds = 14400
 output = text
 ```
+</details>
 
 ### ERROR: image: "bc-local/web" not present locally
+<details>
+<summary>Click to expand solution</summary>
+
 If you're using podman and encountering a problem with `kind load docker-image...` when using `podman` where the error is something like `ERROR: image: "bc-local/web" not present locally` and you can see the image when using `podman images`, then the issue could be that your docker shim is not working properly and you can fix by running 
 
 ```sh
 sudo ln -sf "$(command -v podman)" /usr/local/bin/docker
 ```
 
+</details>
+
 ### ERROR: dropping 1005 traces to Datadog Agent ... ([Errno -2] Name or service not known) 
-If you're seeing many error logs related to the DataDog Agent, it's typically because it's unable to find the bc-local monitoring stack. You can resolve this by launching the monitoring stack with `bc-local monitoring`
+<details>
+<summary>Click to expand solution</summary>
+If you're seeing many error logs related to the DataDog Agent, it's typically because it's unable to find the bc-local monitoring stack. You can resolve this by launching the monitoring stack 
+
+```sh
+bc-local monitoring
+```
+
+</details>
 
 ### ERROR: ECONNREFUSED 127.0.0.1:30678 (when connecting to debugger)
+<details>
+<summary>Click to expand solution</summary>
 <img src="./docs/images/err_ECONNREFUSED_port_30678.png" alt="Screenshot of the VS Code error" width="300">
 
 If you see this error when attempting to connect to the debugger port, this may be because the bc-local kind cluster is not exposing the port. You can test this by executing `lsof -i TCP |grep 30678` which should provide and output like `gvproxy ... TCP *:30678 (LISTEN)`. 
@@ -98,3 +116,5 @@ If you get no output then run the following to fix:
 bc-local clean
 bc-local bootstrap
 ```
+
+</details>
