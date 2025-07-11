@@ -2,7 +2,7 @@
 cask "bc-local" do
   desc "Local BriteCore Dev Environment"
   homepage ""
-  version "0.2.4"
+  version "0.7.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -27,20 +27,20 @@ cask "bc-local" do
 
   on_macos do
     on_intel do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.2.4/bc-local_0.2.4_darwin_amd64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.1/bc-local_0.7.1_darwin_amd64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "05b9c7ac55cd7d04887f457f1585c1d2fdf5652badcb61e26bda7785de3f8cdb"
+      sha256 "562f34e8d854ca30adaaf53bf58d324e4b0675e0432946671bee11f9c707d2a1"
     end
     on_arm do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.2.4/bc-local_0.2.4_darwin_arm64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.1/bc-local_0.7.1_darwin_arm64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "dcf1d3bb77c08a217d4546f0c75bf5e63d07d675ef9827f557da8c2d6b001937"
+      sha256 "6e68953cd4d10348e518933f30867604119398bc0692de97f2ad3cc0b3b15c7f"
     end
   end
 
