@@ -32,7 +32,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "4e13c3c5e094cfe43b557096db44657d2a4b5f24d5321a3224dffe6941882d6a"
+      sha256 "0c7297e47dc93594d2874b755071a8e72ed58f67982000e56992041244fc1cb6"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.5/bc-local-beta_0.7.5_darwin_arm64.tar.gz",
@@ -40,7 +40,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "a9f47621257f3d251d300e29e69d342c0700db54ee88ad96f81aa165b5df55cf"
+      sha256 "67086e09873bc37dcd3e5f636e8449894a5b3f0c95fde7550c0b5c666c724a64"
     end
   end
 
@@ -51,7 +51,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "cd7f4d2b9b5ef0baa4ff7755a6b7cead522b85bbe2f7315269db745dfea5cc28"
+      sha256 "f0478e252a3a173b55158ea9a2d337b61f0fb6b4e99e8f133ee22feca8a9a7e1"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.5/bc-local-beta_0.7.5_linux_arm64.tar.gz",
@@ -59,13 +59,13 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "fb14ab86e895516b08ea6556d3cef7c925270f6c5f2dc202485b8a40aba6d1de"
+      sha256 "6aa124f660be76da9e6feaf4d43cf39aedad670cc20ab00405bf434f746f2c86"
     end
   end
 
   postflight do
     if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
-      system_command "/bin/chmod", args: ["+x", "#{staged_path}/db-connect.sh"]
+      system_command "/bin/chmod", args: ["+x", "#{staged_path}/scripts/db-connect.sh"]
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/bc-local-beta"]
     end
   end
