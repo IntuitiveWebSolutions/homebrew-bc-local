@@ -2,7 +2,7 @@
 cask "bc-local" do
   desc "Local BriteCore Dev Environment"
   homepage ""
-  version "0.7.1"
+  version "0.7.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -27,20 +27,39 @@ cask "bc-local" do
 
   on_macos do
     on_intel do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.1/bc-local_0.7.1_darwin_amd64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.2/bc-local_0.7.2_darwin_amd64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "4ba924c01cb96a598b708cca996f52d2d296f0a35ce778b041504677c4361645"
+      sha256 "0bb8d32016832853ca466edfce9f4c30d77815e783598f3a58bee34c83a4d83c"
     end
     on_arm do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.1/bc-local_0.7.1_darwin_arm64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.2/bc-local_0.7.2_darwin_arm64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "d0f1ce4e39cd3ef50a205d5dffbc0aad98423c3e3e58231e400a9ab529c18239"
+      sha256 "434d8a8e6510f9c22556f9aa122ddbf7ae413f397dd04755997af06b835855c0"
+    end
+  end
+
+  on_linux do
+    on_intel do
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.2/bc-local_0.7.2_linux_amd64.tar.gz",
+        header: [
+          "Accept: application/octet-stream",
+          "Authorization: bearer #{GitHub::API.credentials}",
+        ]
+      sha256 "916324680d0bd23399b8a67c463d4db0fdfd61093be6cb60716a0912b2f7d6f0"
+    end
+    on_arm do
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.7.2/bc-local_0.7.2_linux_arm64.tar.gz",
+        header: [
+          "Accept: application/octet-stream",
+          "Authorization: bearer #{GitHub::API.credentials}",
+        ]
+      sha256 "e01df6d8508ccd15e29ef927a27955bbb505671e087411c4584c234a1a3df582"
     end
   end
 
