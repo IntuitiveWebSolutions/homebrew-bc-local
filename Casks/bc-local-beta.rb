@@ -2,7 +2,7 @@
 cask "bc-local-beta" do
   desc "Local BriteCore Dev Environment (Beta)"
   homepage ""
-  version "0.9.1"
+  version "0.9.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -27,39 +27,39 @@ cask "bc-local-beta" do
 
   on_macos do
     on_intel do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.9.1/bc-local-beta_0.9.1_darwin_amd64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.9.2/bc-local-beta_0.9.2_darwin_amd64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "d1232bb357689d390e8b204d69064feff8aadc4428b42f7369637b615861d78d"
+      sha256 "f315e6f9f3c68aecca8abce8e135dac6d52b1f740e286e52b258ba47e6383e92"
     end
     on_arm do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.9.1/bc-local-beta_0.9.1_darwin_arm64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.9.2/bc-local-beta_0.9.2_darwin_arm64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "2bf0f1c9880d1418466f5d9630629386a9c061e80a74ec55576ee59b0987f591"
+      sha256 "a8c0c793f6fdd6d66266f08f6251b718255641443d137426186434dae9bd5d6e"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.9.1/bc-local-beta_0.9.1_linux_amd64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.9.2/bc-local-beta_0.9.2_linux_amd64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "071ae7347ace6133839413f59ad8d7505a1b4bf4f5c86ff5c9e07c31d63ddb09"
+      sha256 "06ac29d03184aa4d787c1c1bebb56c0c6c13d9bc49f42ae11690d34f8a578ebb"
     end
     on_arm do
-      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.9.1/bc-local-beta_0.9.1_linux_arm64.tar.gz",
+      url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v0.9.2/bc-local-beta_0.9.2_linux_arm64.tar.gz",
         header: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "d54175a1bb403f040bc47912e38caf5113f53ca10710c65242888f8aff41f922"
+      sha256 "50cb18f3ce8f2522bb99d92dcf5e52e9b47b9d8b4be08dec74f3a9e70eb43a3a"
     end
   end
 
