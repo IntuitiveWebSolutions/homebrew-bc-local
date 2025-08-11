@@ -171,3 +171,18 @@ bc-local bootstrap
 ```
 
 </details>
+
+----
+### Issue: Can't get beyond the login screen
+<details>
+<summary>Click to expand solution</summary>
+
+<br>
+If you use correct credentials when attempting to login and it redirects you back to the login screen, this can be caused by using Safari.
+
+<br>
+<br>
+Fix:
+Use a chromium based browser.
+
+</details>
