@@ -130,6 +130,30 @@ sudo ln -sf "$(command -v podman)" /usr/local/bin/docker
 </details>
 
 ----
+### ERROR: failed pre-install: 1 error occured: timed out waiting for the condition
+<details>
+<summary>Click to expand solution</summary>
+<br> 
+
+Example terminal error:
+```sh
+Release "bc-local" does not exist. Installing it now.
+
+Error: failed pre-install: 1 error occurred:
+	* timed out waiting for the condition
+
+```
+
+<br>
+This can be caused because of a long copy-db execution. Typically you can fix thix by including a larger amount of time in the timeout flag
+
+```sh
+bc-local bootstrap client=municipal timeout=50m
+```
+
+</details>
+
+----
 ### ERROR: dropping 1005 traces to Datadog Agent ... ([Errno -2] Name or service not known) 
 <details>
 <summary>Click to expand solution</summary>
