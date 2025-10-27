@@ -33,7 +33,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "26b90d66974c88a44c539fc50219180628385f1c006c4791757b4d7f0c6455da"
+      sha256 "0b04cbc3f0a35f83d7a19709dfaec5a28d11f4229bdb80040c9e5f14a2ea3a40"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_darwin_arm64.tar.gz",
@@ -41,7 +41,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "ef193e254b7802f59933cda1f4b52ac7f81b62d0d52d58df51931faf77c28238"
+      sha256 "77962ae2e565e9bdd525f0b82733f94a66b890f019f228f3c77a6d3bedbffb6a"
     end
   end
 
@@ -52,7 +52,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "03a6ca8998c0448b7a69f95c401536dbd15f833741c73dc30806f0952351c384"
+      sha256 "182c8e02ba5bc617e311eb3f71b2f1367e0f6e9209363f201e6652aefadc0043"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_linux_arm64.tar.gz",
@@ -60,7 +60,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "46e85ebfaa5b790df415c356f6434e65a32953bc47f37989a73df79946503217"
+      sha256 "61566a2eb3c1734467d779e2babcdceaec946a187e15edee4356e44ce6f02c70"
     end
   end
 
@@ -85,7 +85,7 @@ cask "bc-local-beta" do
 
       if task_binary
         puts "Using task binary at: #{task_binary}"
-        system_command task_binary, args: ["-f", "#{staged_path}/Taskfile.yaml", "install-cli"]
+        system_command task_binary, args: ["-t", "#{staged_path}/Taskfile.yaml", "install-cli"]
       else
         puts "Warning: task binary not found. Please install go-task and run 'task install-cli' manually."
       end
