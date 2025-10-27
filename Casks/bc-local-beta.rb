@@ -33,7 +33,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "518f028ac8a53de6f8a4958bf59ba574f38d5c6f0161bdc58d109de66fc9b319"
+      sha256 "26b90d66974c88a44c539fc50219180628385f1c006c4791757b4d7f0c6455da"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_darwin_arm64.tar.gz",
@@ -41,7 +41,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "2e137a87455972dda71e0166d188a9b92cf0229ba102740382a181e64b87c4bb"
+      sha256 "ef193e254b7802f59933cda1f4b52ac7f81b62d0d52d58df51931faf77c28238"
     end
   end
 
@@ -52,7 +52,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "0285a87dd1591e13c91a81f0002ee4b15ec4279d1959840342b156db9ce883c7"
+      sha256 "03a6ca8998c0448b7a69f95c401536dbd15f833741c73dc30806f0952351c384"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_linux_arm64.tar.gz",
@@ -60,7 +60,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "6d184b80f840636427a6777272fb4a8872bf8afed56ab7379d4c9637662b1a54"
+      sha256 "46e85ebfaa5b790df415c356f6434e65a32953bc47f37989a73df79946503217"
     end
   end
 
@@ -73,7 +73,22 @@ cask "bc-local-beta" do
     # Check if britecore-cli is already installed
     if !File.executable?("#{Dir.home}/.local/bin/britecore-cli")
       puts "britecore-cli not found, installing..."
-      system_command "/usr/bin/env", args: ["task", "-f", "#{staged_path}/Taskfile.yaml", "install-cli"]
+
+      # Find task binary in common locations
+      task_binary = nil
+      ["/opt/homebrew/bin/task", "/usr/local/bin/task", "/usr/bin/task"].each do |path|
+        if File.executable?(path)
+          task_binary = path
+          break
+        end
+      end
+
+      if task_binary
+        puts "Using task binary at: #{task_binary}"
+        system_command task_binary, args: ["-f", "#{staged_path}/Taskfile.yaml", "install-cli"]
+      else
+        puts "Warning: task binary not found. Please install go-task and run 'task install-cli' manually."
+      end
     else
       puts "britecore-cli already installed at ~/.local/bin/britecore-cli"
     end
