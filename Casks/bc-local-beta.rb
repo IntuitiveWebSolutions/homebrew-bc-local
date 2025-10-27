@@ -33,7 +33,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "658c7d0164b81e9562157aa39c82b9b4eee15cf8f79fb4ae2d662d7b0fc8a9b4"
+      sha256 "518f028ac8a53de6f8a4958bf59ba574f38d5c6f0161bdc58d109de66fc9b319"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_darwin_arm64.tar.gz",
@@ -41,7 +41,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "b293af8ce2b8c7cf8211aa64c54e922433232adfeac1b953f3f2eff4558d7f8a"
+      sha256 "2e137a87455972dda71e0166d188a9b92cf0229ba102740382a181e64b87c4bb"
     end
   end
 
@@ -52,7 +52,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "81b391cfd19c96722581e861a3b33879f3129571cb9ba6766ce1dba92622558d"
+      sha256 "0285a87dd1591e13c91a81f0002ee4b15ec4279d1959840342b156db9ce883c7"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_linux_arm64.tar.gz",
@@ -60,7 +60,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "a2644f2fefa9f1115b4596c8000731d6861b81cb4bbfff5c87e254bfc3780836"
+      sha256 "6d184b80f840636427a6777272fb4a8872bf8afed56ab7379d4c9637662b1a54"
     end
   end
 
@@ -68,6 +68,14 @@ cask "bc-local-beta" do
     if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
       system_command "/bin/chmod", args: ["+x", "#{staged_path}/scripts/db-connect.sh"]
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/bc-local-beta"]
+    end
+
+    # Check if britecore-cli is already installed
+    if !File.executable?("#{Dir.home}/.local/bin/britecore-cli")
+      puts "britecore-cli not found, installing..."
+      system_command "/usr/bin/env", args: ["task", "-f", "#{staged_path}/Taskfile.yaml", "install-cli"]
+    else
+      puts "britecore-cli already installed at ~/.local/bin/britecore-cli"
     end
   end
 
