@@ -35,7 +35,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "907d8a9d11a9614faf8a02c8611c27ca23696e6a3ff26886b371d8bce1cb1f22"
+      sha256 "dd39ea766d0d5950be482f12fe37eb6e90ddc474faa5c38dc7349af49e8ceca4"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_darwin_arm64.tar.gz",
@@ -43,7 +43,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "684d0c408ceeb74015361480b44116be484bf6a09bdefad2e5da5f447cba23ca"
+      sha256 "55c32adf3c1d5091bc41f299042ce6507d5fbaff63c5dab7fae5989bbbc37be2"
     end
   end
 
@@ -54,7 +54,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "18f517adae2a6c4d8eda581a2695d28b33671363fd659f62354ec0f6ceaebe58"
+      sha256 "639927556a880a91034c7db1d6e25ce6c8c7645d2c11545fb45647014e5e68f1"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_linux_arm64.tar.gz",
@@ -62,7 +62,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "7c9f136e1a1463550ae609b8d713240a1c0f6fdef8e21c1785bafcd322c694cf"
+      sha256 "7360321762764c1167e1ae3846760a7d579191c0372002125b50910f3bf11640"
     end
   end
 
