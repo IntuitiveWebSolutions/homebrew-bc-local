@@ -35,7 +35,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "5fa904088f45129f4f4e760d2447c69a7c8bee8d13480d40743304073f87e769"
+      sha256 "06cdc69900542fbe883c7544f51a3eabc6837c0cd75c3e6ceb402cae8df9e112"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_darwin_arm64.tar.gz",
@@ -43,7 +43,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "8f1bea5be7d6f0d0d28d316adcddf33aec15b7f306e5705960d9b1e5527ee531"
+      sha256 "6bf3e041fc6bb4e1547318f9a79de0f1bef3f1d36e2a3cf02b83f787c9f880c9"
     end
   end
 
@@ -54,7 +54,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "cb16e57ff043b89eab6ed4ef1627d6e33d6103e7a79be0508df2bcd5d25f031a"
+      sha256 "eb9fd8c1902776335289d08712150d757277ffa1f7a5e8be1d6df7fcd42e3d38"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_linux_arm64.tar.gz",
@@ -62,7 +62,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "2905a38bc44b4790674e7ab9a3053997d4f8b684e783213a9ca1458450d3d527"
+      sha256 "92545a673aec2a97ebb4f5dc5a65695db43a0c24318008134786060fb9e11d28"
     end
   end
 
@@ -70,7 +70,6 @@ cask "bc-local-beta" do
     ENV['PATH'] = "/opt/homebrew/bin:/usr/local/bin:~/.local/bin:#{ENV['PATH']}"
 
     if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
-      system_command "/bin/chmod", args: ["+x", "#{staged_path}/scripts/db-connect.sh"]
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/bc-local-beta"]
     end
 
