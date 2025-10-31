@@ -23,7 +23,6 @@ cask "bc-local-beta" do
       "kind",
       "kubectl",
       "podman",
-      "python@3.13",
       "sops",
       "uv",
       "yq",
@@ -36,7 +35,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "dabce15c13d2c0f8a3870ca5bb8f05bb621cecaf6172ea27ddc0ee9ce942b4a2"
+      sha256 "ccab435da660db1a096507ddffcef7943ecc25f893ace41fad030d39308e668a"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_darwin_arm64.tar.gz",
@@ -44,7 +43,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "70e4b25162a6b36562a654319ec0238844b927d634866d3761b4b195a27061b2"
+      sha256 "8f8d6e825e72c3e2a2ca21c44a7f4563e9b1f2d66ea4ec429eb34582b9c3df02"
     end
   end
 
@@ -55,7 +54,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "4ca91a1d7b70aa7254b2411364dae7ba882de10906cae25b9d3ee843785d8ec3"
+      sha256 "a2b7134c56cb88f3224d1147534f5b96813b409182e371538d4f3f1498d66b20"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local-beta_#{version}_linux_arm64.tar.gz",
@@ -63,7 +62,7 @@ cask "bc-local-beta" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "a3d85a2d997b2d784d246578dfe4b2bb974c8b9ab3efd0fd556b82eeff3f48c0"
+      sha256 "2e756d0e7badc0451742fa16b80d03c9e66d3f0234c11866b1c6ef4cc462586d"
     end
   end
 
