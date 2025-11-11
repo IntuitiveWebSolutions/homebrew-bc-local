@@ -3,7 +3,7 @@ cask "bc-local" do
   name "bc-local"
   desc "Local BriteCore Dev Environment"
   homepage ""
-  version "0.14.7"
+  version "0.15.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -16,6 +16,7 @@ cask "bc-local" do
     formula: [
       "awscli",
       "gettext",
+      "gh",
       "go-task",
       "helm",
       "jq",
@@ -23,6 +24,7 @@ cask "bc-local" do
       "kubectl",
       "podman",
       "sops",
+      "uv",
       "yq",
     ]
 
@@ -33,7 +35,7 @@ cask "bc-local" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "c2285652fe21dc5de5d13f4bea5152545bc36aa3160e4bd01a605f4d84a1732a"
+      sha256 "62461a446d3551aaa4a580942d7759ae3acc507de4fd9c0d7dedf0116c4e46ad"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local_#{version}_darwin_arm64.tar.gz",
@@ -41,7 +43,7 @@ cask "bc-local" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "63fbf86886edb72e335bfa686e1c93ec328eee4ab82249aadefe496aef740864"
+      sha256 "9bb8a8f971089f14f9eef7d7b3c2aa138f8731dd2df377202fe424d00969d0f6"
     end
   end
 
@@ -52,7 +54,7 @@ cask "bc-local" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "584e8b0ae1e478ca946f4d2592cc7c1fa1c42ed37bb2e6cb51423071224ba354"
+      sha256 "fda37275a9caa2816c31fbacc49560318e7ec6fb62cde0b4ee3743d1bc74b283"
     end
     on_arm do
       url "https://github.com/IntuitiveWebSolutions/bc-local/releases/download/v#{version}/bc-local_#{version}_linux_arm64.tar.gz",
@@ -60,14 +62,38 @@ cask "bc-local" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{GitHub::API.credentials}",
         ]
-      sha256 "312b25ebbcacb7fc9d46f7020bc0c428e120030619372a62ffd418780114601c"
+      sha256 "a64319e7e0b7f0442914c6f2096d9409c044cfef71e3fa03cfae27f5747a24f1"
     end
   end
 
   postflight do
+    ENV['PATH'] = "/opt/homebrew/bin:/usr/local/bin:~/.local/bin:#{ENV['PATH']}"
+
     if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
-      system_command "/bin/chmod", args: ["+x", "#{staged_path}/scripts/db-connect.sh"]
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/bc-local"]
+    end
+
+    # Check if britecore-cli is already installed
+    if !File.executable?("#{Dir.home}/.local/bin/britecore-cli")
+      puts "britecore-cli not found, installing..."
+
+      # Find task binary in common locations
+      task_binary = nil
+      ["/opt/homebrew/bin/task", "/usr/local/bin/task", "/usr/bin/task"].each do |path|
+        if File.executable?(path)
+          task_binary = path
+          break
+        end
+      end
+
+      if task_binary
+        puts "Using task binary at: #{task_binary}"
+        system_command task_binary, args: ["-t", "#{staged_path}/Taskfile.yaml", "install-cli"]
+      else
+        puts "Warning: task binary not found. Please install go-task and run 'task install-cli' manually."
+      end
+    else
+      puts "britecore-cli already installed at ~/.local/bin/britecore-cli"
     end
   end
 
